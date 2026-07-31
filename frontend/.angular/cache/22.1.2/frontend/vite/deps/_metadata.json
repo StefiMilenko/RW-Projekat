@@ -1,0 +1,36 @@
+{
+  "hash": "c0d25b15",
+  "configHash": "cc0e1f3b",
+  "lockfileHash": "41549298",
+  "browserHash": "531160f3",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "41adb7d9",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "008e52d0",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "597c6b6e",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "core-BOi6uYdK": {
+      "file": "core-BOi6uYdK.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-DPVMiXhw": {
+      "file": "platform-browser-DPVMiXhw.js",
+      "isDynamicEntry": false
+    }
+  }
+}
