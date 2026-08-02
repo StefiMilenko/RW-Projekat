@@ -9,6 +9,6 @@ export class Item {
   @Column('int', { default: 0 }) supply!: number;
   @Column('int', { default: 0 }) demand!: number;
 
-  @OneToMany(() => InventoryItem, (inv) => inv.item)
+  @OneToMany(() => InventoryItem, (inv) => inv.item)  // Nade se u vise inventories
   inventories!: InventoryItem[];
 }

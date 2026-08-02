@@ -4,9 +4,11 @@ import { UpdateItemDto } from './dto/update-item.dto';
 export declare class ItemsController {
     private readonly itemsService;
     constructor(itemsService: ItemsService);
-    create(createItemDto: CreateItemDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateItemDto: UpdateItemDto): string;
-    remove(id: string): string;
+    create(createItemDto: CreateItemDto): Promise<import("./entities/item.entity").Item>;
+    findAll(): Promise<import("./entities/item.entity").Item[]>;
+    findOne(id: string): Promise<import("./entities/item.entity").Item>;
+    update(id: string, updateItemDto: UpdateItemDto): Promise<import("./entities/item.entity").Item>;
+    remove(id: string): Promise<{
+        deleted: boolean;
+    }>;
 }

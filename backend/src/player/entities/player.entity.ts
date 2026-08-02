@@ -6,8 +6,8 @@ export class Player {
   @PrimaryGeneratedColumn() id!: number;
   @Column({ unique: true }) username!: string;
   @Column() passwordHash!: string;
-  @Column('float', { default: 1000 }) gold!: number;
+  @Column('float', { default: 1000 }) gold!: number;  //Florins
 
-  @OneToMany(() => InventoryItem, (inv) => inv.player)
+  @OneToMany(() => InventoryItem, (inv) => inv.player)  //Drzi vise itema u backpack
   inventory!: InventoryItem[];
 }

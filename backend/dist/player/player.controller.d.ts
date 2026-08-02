@@ -5,8 +5,10 @@ export declare class PlayerController {
     private readonly playerService;
     constructor(playerService: PlayerService);
     create(createPlayerDto: CreatePlayerDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updatePlayerDto: UpdatePlayerDto): string;
-    remove(id: string): string;
+    findAll(): Promise<import("./entities/player.entity").Player[]>;
+    findOne(id: string): Promise<import("./entities/player.entity").Player>;
+    update(id: string, updatePlayerDto: UpdatePlayerDto): Promise<import("./entities/player.entity").Player>;
+    remove(id: string): Promise<{
+        deleted: boolean;
+    }>;
 }

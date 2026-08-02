@@ -1,1 +1,5 @@
-export class CreateInventoryDto {}
+export class CreateInventoryDto {
+    playerId!: number;
+    itemId!: number;
+    quantity?: number;
+}

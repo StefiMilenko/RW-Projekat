@@ -25,7 +25,7 @@ __decorate([
     __metadata("design:type", Number)
 ], InventoryItem.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)('int'),
+    (0, typeorm_1.Column)('int', { default: 1 }),
     __metadata("design:type", Number)
 ], InventoryItem.prototype, "quantity", void 0);
 __decorate([

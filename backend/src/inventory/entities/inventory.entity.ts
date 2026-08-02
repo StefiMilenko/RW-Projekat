@@ -5,7 +5,7 @@ import { Player } from 'src/player/entities/player.entity';
 @Entity()
 export class InventoryItem {
   @PrimaryGeneratedColumn() id!: number;
-  @Column('int') quantity!: number;
+  @Column('int', { default: 1 }) quantity!: number;
 
   @ManyToOne(() => Player, (p) => p.inventory)
   player!: Player;
