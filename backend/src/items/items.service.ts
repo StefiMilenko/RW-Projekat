@@ -24,7 +24,7 @@ export class ItemsService {
     return item;
   }
 
-  async update(id: number, updateItemDto: UpdateItemDto) {
+  async update(id: number, updateItemDto: UpdateItemDto) { //Samo supply i demand
     await this.findOne(id);
     await this.repo.update(id, updateItemDto);
     return this.findOne(id);

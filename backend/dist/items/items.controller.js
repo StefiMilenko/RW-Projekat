@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const items_service_1 = require("./items.service");
 const create_item_dto_1 = require("./dto/create-item.dto");
 const update_item_dto_1 = require("./dto/update-item.dto");
+const common_2 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 let ItemsController = class ItemsController {
     itemsService;
     constructor(itemsService) {
@@ -40,6 +42,7 @@ let ItemsController = class ItemsController {
 };
 exports.ItemsController = ItemsController;
 __decorate([
+    (0, common_2.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -60,6 +63,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ItemsController.prototype, "findOne", null);
 __decorate([
+    (0, common_2.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -68,6 +72,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ItemsController.prototype, "update", null);
 __decorate([
+    (0, common_2.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),

@@ -1,35 +1,75 @@
 {
-  "hash": "c0d25b15",
-  "configHash": "cc0e1f3b",
+  "hash": "d022a829",
+  "configHash": "dd3253b4",
   "lockfileHash": "41549298",
-  "browserHash": "531160f3",
+  "browserHash": "10a30add",
   "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "6cd4dbd6",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "1fb41860",
+      "needsInterop": false
+    },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "41adb7d9",
+      "fileHash": "70978eef",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "2131b22b",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "008e52d0",
+      "fileHash": "9e3f8d7e",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "597c6b6e",
+      "fileHash": "8c5312f0",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "5c2f2be1",
       "needsInterop": false
     }
   },
   "chunks": {
-    "core-BOi6uYdK": {
-      "file": "core-BOi6uYdK.js",
+    "_xhr-chunk-BSRdrpBn": {
+      "file": "_xhr-chunk-BSRdrpBn.js",
       "isDynamicEntry": false
     },
-    "platform-browser-DPVMiXhw": {
-      "file": "platform-browser-DPVMiXhw.js",
+    "common-D_Uo8xZP": {
+      "file": "common-D_Uo8xZP.js",
+      "isDynamicEntry": false
+    },
+    "core-D6zx-NCn": {
+      "file": "core-D6zx-NCn.js",
+      "isDynamicEntry": false
+    },
+    "esm5-ChK3bs0s": {
+      "file": "esm5-ChK3bs0s.js",
+      "isDynamicEntry": false
+    },
+    "http-EOEuZdzn": {
+      "file": "http-EOEuZdzn.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-nG-c1xvR": {
+      "file": "platform-browser-nG-c1xvR.js",
       "isDynamicEntry": false
     }
   }
