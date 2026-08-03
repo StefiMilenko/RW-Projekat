@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Item } from '../models/item.model';
-import { ItemService } from '../services/item.service';
+import { ItemActions } from '../item-store/item.actions';
 
 @Component({
   selector: 'app-item-card',
@@ -15,18 +16,15 @@ import { ItemService } from '../services/item.service';
 })
 export class ItemCardComponent {
   @Input({ required: true }) item!: Item;
-  @Output() updated = new EventEmitter<Item>();
-  @Output() deleted = new EventEmitter<number>();
-
-  private itemService = inject(ItemService);
+  private store = inject(Store);
 
   onUpdate() {
-    this.itemService
-      .update(this.item.id, { supply: this.item.supply + 10 })
-      .subscribe((updated) => this.updated.emit(updated));
+    this.store.dispatch(
+      ItemActions.updateItem({ id: this.item.id, changes: { supply: this.item.supply + 10 } }),
+    );
   }
 
   onDelete() {
-    this.itemService.remove(this.item.id).subscribe(() => this.deleted.emit(this.item.id));
+    this.store.dispatch(ItemActions.deleteItem({ id: this.item.id }));
   }
 }
