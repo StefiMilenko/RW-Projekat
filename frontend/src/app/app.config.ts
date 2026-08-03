@@ -9,12 +9,14 @@ import { itemReducer } from './item-store/item.reducer';
 import { ItemEffects } from './item-store/item.effects';
 import { playerReducer } from './player-store/player.reducer';
 import { PlayerEffects } from './player-store/player.effects';
+import { inventoryReducer } from './inventory-store/inventory.reducer';
+import { InventoryEffects } from './inventory-store/inventory.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(routes),
-    provideStore({ items: itemReducer, players: playerReducer}),
-    provideEffects([ItemEffects, PlayerEffects]),
+    provideStore({ items: itemReducer, players: playerReducer, inventory: inventoryReducer }),
+    provideEffects([ItemEffects, PlayerEffects, InventoryEffects]),
   ],
 };

@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { InventoryItem } from '../models/inventory.model';
-import { InventoryService } from '../services/inventory.service';
+import { InventoryActions } from '../inventory-store/inventory.actions';
 
 @Component({
   selector: 'app-inventory-card',
@@ -15,18 +16,13 @@ import { InventoryService } from '../services/inventory.service';
 })
 export class InventoryCardComponent {
   @Input({ required: true }) entry!: InventoryItem;
-  @Output() updated = new EventEmitter<InventoryItem>();
-  @Output() deleted = new EventEmitter<number>();
-
-  private inventoryService = inject(InventoryService);
+  private store = inject(Store);
 
   onUpdate() {
-    this.inventoryService
-      .updateQuantity(this.entry.id, this.entry.quantity + 1)
-      .subscribe((updated) => this.updated.emit(updated));
+    this.store.dispatch(InventoryActions.updateQuantity({ id: this.entry.id, quantity: this.entry.quantity + 1 }));
   }
 
   onDelete() {
-    this.inventoryService.remove(this.entry.id).subscribe(() => this.deleted.emit(this.entry.id));
+    this.store.dispatch(InventoryActions.deleteEntry({ id: this.entry.id }));
   }
 }

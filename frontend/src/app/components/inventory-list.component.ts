@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, switchMap } from 'rxjs';
-import { InventoryService } from '../services/inventory.service';
+import { Store } from '@ngrx/store';
+import { InventoryActions } from '../inventory-store/inventory.actions';
+import { selectAllInventory } from '../inventory-store/inventory.selector';
 import { InventoryCardComponent } from './inventory-card.component';
 
 @Component({
@@ -10,17 +11,15 @@ import { InventoryCardComponent } from './inventory-card.component';
   imports: [CommonModule, InventoryCardComponent],
   template: `
     <div *ngFor="let entry of entries$ | async">
-      <app-inventory-card [entry]="entry" (updated)="reload()" (deleted)="reload()"></app-inventory-card>
+      <app-inventory-card [entry]="entry"></app-inventory-card>
     </div>
   `,
 })
-export class InventoryListComponent {
-  private inventoryService = inject(InventoryService);
-  private refresh$ = new BehaviorSubject<void>(undefined);
+export class InventoryListComponent implements OnInit {
+  private store = inject(Store);
+  entries$ = this.store.select(selectAllInventory);
 
-  entries$ = this.refresh$.pipe(switchMap(() => this.inventoryService.getAll()));
-
-  reload() {
-    this.refresh$.next();
+  ngOnInit() {
+    this.store.dispatch(InventoryActions.loadInventory());
   }
 }
