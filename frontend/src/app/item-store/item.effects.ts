@@ -9,6 +9,18 @@ export class ItemEffects {
   private actions$ = inject(Actions);
   private itemService = inject(ItemService);
 
+  createItem$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(ItemActions.createItem),
+    mergeMap(({ name, basePrice, supply, demand }) =>
+      this.itemService.create({ name, basePrice, supply: supply ?? 0, demand: demand ?? 0 }).pipe(
+        map((item) => ItemActions.createItemSuccess({ item })),
+        catchError((error) => of(ItemActions.createItemFailure({ error: error.message }))),
+      ),
+    ),
+  ),
+);
+
   loadItems$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ItemActions.loadItems),

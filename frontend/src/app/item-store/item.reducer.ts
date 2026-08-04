@@ -4,7 +4,7 @@ import { ItemActions } from './item.actions';
 
 export const itemReducer = createReducer(
   initialItemState,
-
+  on(ItemActions.createItemSuccess, (state, { item }) => itemAdapter.addOne(item, state)),
   on(ItemActions.loadItems, (state) => ({ ...state, loading: true, error: null })),
   on(ItemActions.loadItemsSuccess, (state, { items }) =>
     itemAdapter.setAll(items, { ...state, loading: false }),

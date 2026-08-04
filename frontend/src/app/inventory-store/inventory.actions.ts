@@ -4,6 +4,10 @@ import { InventoryItem } from '../models/inventory.model';
 export const InventoryActions = createActionGroup({
   source: 'Inventory',
   events: {
+    'Create Entry': props<{ playerId: number; itemId: number; quantity?: number }>(),
+    'Create Entry Success': props<{ entry: InventoryItem }>(),
+    'Create Entry Failure': props<{ error: string }>(),
+
     'Load Inventory': emptyProps(),
     'Load Inventory Success': props<{ entries: InventoryItem[] }>(),
     'Load Inventory Failure': props<{ error: string }>(),

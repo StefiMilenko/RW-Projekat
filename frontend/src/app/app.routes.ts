@@ -3,9 +3,11 @@ import { ItemListComponent } from './components/item-list.component';
 import { LoginComponent } from './components/login.component';
 import { PlayerListComponent } from './components/player-list.component';
 import { InventoryListComponent } from './components/inventory-list.component';
+import { RegisterComponent } from './components/player-register.components';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'items', component: ItemListComponent },
   { path: 'players', component: PlayerListComponent },
   { path: 'inventory', component: InventoryListComponent },

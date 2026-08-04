@@ -9,6 +9,18 @@ export class InventoryEffects {
   private actions$ = inject(Actions);
   private inventoryService = inject(InventoryService);
 
+  createEntry$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(InventoryActions.createEntry),
+      mergeMap(({ playerId, itemId, quantity }) =>
+        this.inventoryService.create(playerId, itemId, quantity).pipe(
+          map((entry) => InventoryActions.createEntrySuccess({ entry })),
+          catchError((error) => of(InventoryActions.createEntryFailure({ error: error.message }))),
+        ),
+      ),
+    ),
+  );
+
   loadInventory$ = createEffect(() =>
     this.actions$.pipe(
       ofType(InventoryActions.loadInventory),

@@ -4,7 +4,7 @@ import { InventoryActions } from './inventory.actions';
 
 export const inventoryReducer = createReducer(
   initialInventoryState,
-
+  on(InventoryActions.createEntrySuccess, (state, { entry }) => inventoryAdapter.addOne(entry, state)),
   on(InventoryActions.loadInventory, (state) => ({ ...state, loading: true, error: null })),
   on(InventoryActions.loadInventorySuccess, (state, { entries }) =>
     inventoryAdapter.setAll(entries, { ...state, loading: false }),
